@@ -1,0 +1,52 @@
+{
+  "name": "dmarc-parse",
+  "version": "0.0.1",
+  "description": "Parse DMARC policy strings",
+  "main": "index.js",
+  "scripts": {
+    "test": "xo && ava",
+    "report": "nyc ava && nyc report --reporter=html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/softvu/dmarc-parse.git"
+  },
+  "keywords": [
+    "dmarc",
+    "email",
+    "mail",
+    "dkim",
+    "spf",
+    "spam"
+  ],
+  "author": "Brian Hann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/softvu/dmarc-parse/issues"
+  },
+  "homepage": "https://github.com/softvu/dmarc-parse#readme",
+  "devDependencies": {
+    "ava": "^0.17.0",
+    "coveralls": "^2.11.15",
+    "nyc": "^10.0.0",
+    "xo": "^0.17.1"
+  },
+  "xo": {
+    "esnext": true,
+    "rules": {
+      "prefer-const": 0,
+      "no-negated-condition": 0,
+      "brace-style": [
+        "error",
+        "stroustrup"
+      ],
+      "no-debugger": [
+        "warn"
+      ],
+      "no-useless-call": 0
+    }
+  },
+  "dependencies": {
+    "email-validator": "^1.0.7"
+  }
+}
