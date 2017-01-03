@@ -1,3 +1,5 @@
+'use strict';
+
 const validator = require('email-validator');
 
 const validators = {
