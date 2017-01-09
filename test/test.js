@@ -18,3 +18,13 @@ test('Invalid term fails', t => {
 	// console.log(ret);
 	t.true(ret.messages.some(x => /Unknown tag 'foo'/i.test(x)));
 });
+
+test('Ignore empty tags', t => {
+	let ret = d('v=DMARC1; p=reject; pct=100; rua=mailto:dmarc_y_rua@yahoo.com;');
+	t.falsy(ret.messages);
+});
+
+test('Ignore empty tags and whitespace', t => {
+	let ret = d('v=DMARC1; p=reject; pct=100; rua=mailto:dmarc_y_rua@yahoo.com;  ');
+	t.falsy(ret.messages);
+});

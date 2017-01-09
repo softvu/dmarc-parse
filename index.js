@@ -111,7 +111,9 @@ function parse(policy) {
   // 1. Split policy string on semicolons into term pairs
   // 2. Process and validate each term pair
 
-	let terms = policy.split(/;/);
+	let terms = policy.split(/;/)
+								.map(t => t.trim()) // Trim surrounding whitespace
+								.filter(x => x !== ''); // Ignore empty tags
 
 	let rules = terms.map(
     x => x.split(/[=]/)
