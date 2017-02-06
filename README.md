@@ -30,6 +30,19 @@ let tags - dmarc('v=DMARC1; p=reject; rua=mailto:mailauth-reports@google.com');
 // }
 ```
 
+# Debugging
+
+	  npm install -g inspect-process
+		inspect node_modules/ava/profile.js some/test/file.js
+
+# Watching Tests
+
+		ava --watch
+
+or
+
+		npm test -- --watch
+
 # License
 
 MIT © [SoftVu](https://softvu.com)

@@ -17,7 +17,7 @@ const validators = {
 		// termPattern: /^fo$/,
 		description: 'Forensic reporting options. Possible values: "0" to generate reports if all underlying authentication mechanisms fail to produce a DMARC pass result, "1" to generate reports if any mechanisms fail, "d" to generate report if DKIM signature failed to verify, "s" if SPF failed.',
 		validate(term, value) {
-			if (!/^([01ds])$/.test(value)) {
+			if (!/^([01ds])$/i.test(value)) {
 				throw new Error(`Invalid value for '${term}': '${value}', must be one of: 0, 1, d, s`);
 			}
 		}
@@ -25,7 +25,7 @@ const validators = {
 	p: {
 		description: 'Policy to apply to email that fails the DMARC check. Can be "none", "quarantine", or "reject". "none" is used to collect feedback and gain visibility into email streams without impacting existing flows.',
 		validate(term, value) {
-			if (!/^(none|quarantine|reject)$/.test(value)) {
+			if (!/^(none|quarantine|reject)$/i.test(value)) {
 				throw new Error(`Invalid value for '${term}': '${value}', must be one of: none, quarantine, reject`);
 			}
 		}
@@ -48,7 +48,7 @@ const validators = {
 			let values = value.split(/,|:/).map(x => x.trim());
 
 			for (let val of values) {
-				if (!/^(afrf|iodef)$/.test(val)) {
+				if (!/^(afrf|iodef)$/i.test(val)) {
 					throw new Error(`Invalid value for '${term}': '${value}', must be one or more of these values: afrf, iodef. Multiple values must be separated by a comma or colon`);
 				}
 			}
@@ -68,7 +68,7 @@ const validators = {
 			let values = value.split(/,/).map(x => x.trim());
 
 			for (let val of values) {
-				let matches = val.match(/^mailto:(.+)$/);
+				let matches = val.match(/^mailto:(.+)$/i);
 				if (!matches) {
 					throw new Error(`Invalid value for '${term}': ${value}, must be a list of DMARC URIs such as 'mailto:some.email@somedomain.com'`);
 				}
@@ -85,7 +85,7 @@ const validators = {
 			let values = value.split(/,/).map(x => x.trim());
 
 			for (let val of values) {
-				let matches = val.match(/^mailto:(.+)$/);
+				let matches = val.match(/^mailto:(.+)$/i);
 				if (!matches) {
 					throw new Error(`Invalid value for '${term}': ${value}, must be a list of DMARC URIs such as 'mailto:some.email@somedomain.com'`);
 				}
@@ -99,7 +99,7 @@ const validators = {
 	sp: {
 		description: 'Requested Mail Receiver policy for all subdomains. Can be "none", "quarantine", or "reject".',
 		validate(term, value) {
-			if (!/^(none|quarantine|reject)$/.test(value)) {
+			if (!/^(none|quarantine|reject)$/i.test(value)) {
 				throw new Error(`Invalid value for '${term}': '${value}', must be one of: none, quarantine, reject`);
 			}
 		}
@@ -126,7 +126,7 @@ function parse(policy) {
 	};
 
 	// Make sure `v` is the first tag
-	if (rules[0][0] !== 'v') {
+	if (!/^v$/i.test(rules[0][0])) {
 		retval.messages.push(`First tag in a DMARC policy must be 'v', but found: '${rules[0][0]}'`);
 		return retval;
 	}
@@ -141,7 +141,9 @@ function parse(policy) {
 			let settings = validators[validatorTerm];
 
 			// Term matches validaor
-			if (term === validatorTerm) {
+			debugger;
+			let termRegex = new RegExp(`^${validatorTerm}$`, 'i');
+			if (termRegex.test(term)) {
 				found = true;
 
 				let tag = {

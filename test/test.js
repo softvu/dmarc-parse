@@ -13,6 +13,11 @@ test('Must have valid DMARC version', t => {
 	t.true(ret.messages.some(x => /invalid DMARC version/i.test(x)));
 });
 
+test('Lower-case DMARC fails', t => {
+	let ret = d('v=dmarc1');
+	t.true(ret.messages.some(x => /invalid DMARC version/i.test(x)));
+});
+
 test('Invalid term fails', t => {
 	let ret = d('v=DMARC1; foo=bar');
 	// console.log(ret);
@@ -26,5 +31,10 @@ test('Ignore empty tags', t => {
 
 test('Ignore empty tags and whitespace', t => {
 	let ret = d('v=DMARC1; p=reject; pct=100; rua=mailto:dmarc_y_rua@yahoo.com;  ');
+	t.falsy(ret.messages);
+});
+
+test('Parse without being case-sensitive', t => {
+	let ret = d('V=DMARC1; P=REJECT; FO=S; PCT=100; RF=AFRF; RI=30; RUF=MAILTO:foo@bar.com; RUA=MAILTO:dmarc_y_rua@yahoo.com; SP=NONE');
 	t.falsy(ret.messages);
 });
