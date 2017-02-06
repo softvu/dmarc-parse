@@ -47,6 +47,8 @@
     }
   },
   "dependencies": {
-    "email-validator": "^1.0.7"
+    "dmarc-parse": "1.0.2",
+    "email-validator": "^1.0.7",
+    "spf-parse": "1.0.4"
   }
 }

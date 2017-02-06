@@ -1307,6 +1307,12 @@ detect-indent@^4.0.0:
   dependencies:
     repeating "^2.0.0"
 
+dmarc-parse@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/dmarc-parse/-/dmarc-parse-1.0.2.tgz#77528fcdf78b888c48722856afac7e413b773b7b"
+  dependencies:
+    email-validator "^1.0.7"
+
 doctrine@1.5.0, doctrine@^1.2.2:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/doctrine/-/doctrine-1.5.0.tgz#379dce730f6166f76cefa4e6707a159b02c5a6fa"
@@ -2055,6 +2061,10 @@ invert-kv@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/invert-kv/-/invert-kv-1.0.0.tgz#104a8e4aaca6d3d8cd157a8ef8bfab2d7a3ffdb6"
 
+ipaddr.js@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/ipaddr.js/-/ipaddr.js-1.2.0.tgz#8aba49c9192799585bdd643e0ccb50e8ae777ba4"
+
 irregular-plurals@^1.0.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/irregular-plurals/-/irregular-plurals-1.2.0.tgz#38f299834ba8c00c30be9c554e137269752ff3ac"
@@ -2493,7 +2503,7 @@ lodash.upperfirst@^4.2.0:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/lodash.upperfirst/-/lodash.upperfirst-4.3.1.tgz#1365edf431480481ef0d1c68957a5ed99d49f7ce"
 
-lodash@^4.0.0, lodash@^4.13.1, lodash@^4.2.0, lodash@^4.3.0:
+lodash@^4.0.0, lodash@^4.13.1, lodash@^4.17.3, lodash@^4.2.0, lodash@^4.3.0:
   version "4.17.3"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.3.tgz#557ed7d2a9438cac5fd5a43043ca60cb455e01f7"
 
@@ -3507,6 +3517,14 @@ spdx-license-ids@^1.0.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-1.2.2.tgz#c9df7a3424594ade6bd11900d596696dc06bac57"
 
+spf-parse@1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/spf-parse/-/spf-parse-1.0.4.tgz#853adb70ffb4048ea53dbdf71d08511a2595fa73"
+  dependencies:
+    ipaddr.js "^1.2.0"
+    lodash "^4.17.3"
+    tldjs "^1.7.0"
+
 sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
@@ -3690,6 +3708,12 @@ time-require@^0.1.2:
 timed-out@^3.0.0:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/timed-out/-/timed-out-3.1.3.tgz#95860bfcc5c76c277f8f8326fd0f5b2e20eba217"
+
+tldjs@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/tldjs/-/tldjs-1.7.0.tgz#33de08e59d32e02f2be850096476d671b1431a81"
+  dependencies:
+    punycode "^1.4.1"
 
 to-fast-properties@^1.0.1:
   version "1.0.2"
