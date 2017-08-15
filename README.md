@@ -10,7 +10,7 @@
 ```javascript
 const dmarc = require('dmarc-parse');
 
-let tags - dmarc('v=DMARC1; p=reject; rua=mailto:mailauth-reports@google.com');
+let tags = dmarc('v=DMARC1; p=reject; rua=mailto:mailauth-reports@google.com');
 
 // tags == {
 //     tags: {
