@@ -103,6 +103,22 @@ const validators = {
 				throw new Error(`Invalid value for '${term}': '${value}', must be one of: none, quarantine, reject`);
 			}
 		}
+	},
+	aspf: {
+		description: 'SPF Alignment mode. Can be "s" or "r".',
+		validate(term, value) {
+			if (!/^(s|r)$/i.test(value)) {
+				throw new Error(`Invalid value for '${term}': '${value}', must be one of: s, r`);
+			}
+		}
+	},
+	adkim: {
+		description: 'DKIM Alignment mode. Can be "s" or "r".',
+		validate(term, value) {
+			if (!/^(s|r)$/i.test(value)) {
+				throw new Error(`Invalid value for '${term}': '${value}', must be one of: s, r`);
+			}
+		}
 	}
 };
 
