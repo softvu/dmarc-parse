@@ -74,10 +74,13 @@ const validators = {
 				}
 				let email = matches[1];
 				const limitRE = /!(.+)$/;
-				const limitMatch = email.match(limitRE);
-				if (limitMatch) {
-					const sizeLimit = limitMatch[0];
-					email = email.replace(sizeLimit, '');
+				const index = email.indexOf('@');
+				if (index !== -1) {
+					const limitMatch = email.substring(index + 1).match(limitRE);
+					if (limitMatch) {
+						const sizeLimit = limitMatch[0];
+						email = email.replace(sizeLimit, '');
+					}
 				}
 				if (!validator.validate(email)) {
 					throw new Error(`Invalid email address in '${term}': '${email}'`);
@@ -97,10 +100,13 @@ const validators = {
 				}
 				let email = matches[1];
 				const limitRE = /!(.+)$/;
-				const limitMatch = email.match(limitRE);
-				if (limitMatch) {
-					const sizeLimit = limitMatch[0];
-					email = email.replace(sizeLimit, '');
+				const index = email.indexOf('@');
+				if (index !== -1) {
+					const limitMatch = email.substring(index + 1).match(limitRE);
+					if (limitMatch) {
+						const sizeLimit = limitMatch[0];
+						email = email.replace(sizeLimit, '');
+					}
 				}
 				if (!validator.validate(email)) {
 					throw new Error(`Invalid email address in '${term}': '${email}'`);
@@ -179,6 +185,7 @@ function parse(policy) {
 				};
 
 				if (settings.validate) {
+					// eslint-disable-next-line max-depth
 					try {
 						settings.validate.call(settings, term, value);
 						tag.value = value;
