@@ -1,6 +1,6 @@
 {
   "name": "dmarc-parse",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Parse DMARC policy strings",
   "main": "index.js",
   "scripts": {
