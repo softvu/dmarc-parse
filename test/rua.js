@@ -5,6 +5,10 @@ test('rua with a good email succeeds', t => {
 	t.true(d('v=DMARC1; rua=mailto:word.up@wordup.co').messages === undefined);
 });
 
+test('rua with a good email and report size succeeds', t => {
+	t.true(d('v=DMARC1; rua=mailto:word.up@wordup.co!10m').messages === undefined);
+});
+
 test('rua with bad email fails', t => {
 	let ret = d('v=DMARC1; rua=mailto:bob@bob');
 	// console.log(ret);

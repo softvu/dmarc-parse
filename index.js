@@ -73,6 +73,12 @@ const validators = {
 					throw new Error(`Invalid value for '${term}': ${value}, must be a list of DMARC URIs such as 'mailto:some.email@somedomain.com'`);
 				}
 				let email = matches[1];
+				const limitRE = /!(.+)$/;
+				const limitMatch = email.match(limitRE);
+				if (limitMatch) {
+					const sizeLimit = limitMatch[0];
+					email = email.replace(sizeLimit, '');
+				}
 				if (!validator.validate(email)) {
 					throw new Error(`Invalid email address in '${term}': '${email}'`);
 				}
@@ -90,6 +96,12 @@ const validators = {
 					throw new Error(`Invalid value for '${term}': ${value}, must be a list of DMARC URIs such as 'mailto:some.email@somedomain.com'`);
 				}
 				let email = matches[1];
+				const limitRE = /!(.+)$/;
+				const limitMatch = email.match(limitRE);
+				if (limitMatch) {
+					const sizeLimit = limitMatch[0];
+					email = email.replace(sizeLimit, '');
+				}
 				if (!validator.validate(email)) {
 					throw new Error(`Invalid email address in '${term}': '${email}'`);
 				}
@@ -157,7 +169,6 @@ function parse(policy) {
 			let settings = validators[validatorTerm];
 
 			// Term matches validaor
-			debugger;
 			let termRegex = new RegExp(`^${validatorTerm}$`, 'i');
 			if (termRegex.test(term)) {
 				found = true;
