@@ -1,4 +1,4 @@
-# dmarc-parse [![Build Status](https://travis-ci.org/softvu/dmarc-parse.svg?branch=master)](https://travis-ci.org/softvu/dmarc-parse) [![Coverage Status](https://coveralls.io/repos/github/softvu/dmarc-parse/badge.svg?branch=master)](https://coveralls.io/github/softvu/dmarc-parse?branch=master) [![Dependency Status](https://dependencyci.com/github/softvu/dmarc-parse/badge)](https://dependencyci.com/github/softvu/dmarc-parse) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
+# dmarc-parse [![Build Status](https://travis-ci.org/softvu/dmarc-parse.svg?branch=master)](https://travis-ci.org/softvu/dmarc-parse) [![Coverage Status](https://coveralls.io/repos/github/softvu/dmarc-parse/badge.svg?branch=master)](https://coveralls.io/github/softvu/dmarc-parse?branch=master) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 > Parse and validate the syntax of DMARC (Domain-based Message Authentication, Reporting, and Conformance) DNS strings
 
 # Install
